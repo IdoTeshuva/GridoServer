@@ -29,14 +29,6 @@ router.patch('/:id', (req,res,next) => {
     const Price = req.body.firstPrice
     const Bid = req.body.bid
     const UpdatedBid = req.body
-console.log(req.body.firstPrice);
-    if (Bid <= 10){
-        res.json({
-            'error' : true,
-            'message' : 'Bid must be higher than 10$'
-        })
-    }
-    else {
     User.findByIdAndUpdate(ItemId, UpdatedBid,  (err, data) => {
         if(err){
             res.status(400).json({
@@ -52,6 +44,6 @@ console.log(req.body.firstPrice);
 
     }) }
     
-}
+
 )
 module.exports = router;
