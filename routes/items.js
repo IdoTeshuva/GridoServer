@@ -24,10 +24,10 @@ router.delete('/:id', (req,res,next) => {
     .catch(next)
 })
 
-router.patch('/:id', (req,res,next) => {
+router.patch('/:id', (req,res) => {
     const ItemId = req.params.id
-    const Price = req.body.firstPrice
-    const Bid = req.body.bid
+    // const Price = req.body.firstPrice
+    // const Bid = req.body.bid
     const UpdatedBid = req.body
     User.findByIdAndUpdate(ItemId, UpdatedBid,  (err, data) => {
         if(err){
@@ -38,7 +38,7 @@ router.patch('/:id', (req,res,next) => {
         }
        else{
             res.json({
-                item : data
+                data
             })
         }
 
